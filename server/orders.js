@@ -7,15 +7,15 @@ const { mapMeidoToWorkers } = require("./mapping");
 const ordersCacheFilePath = "./server/orders.json";
 
 const logger = {
-  log: (message) => (data) => {
+  log: message => data => {
     console.log(message);
     return data;
   },
-  error: (message, result) => (error) => {
+  error: (message, result) => error => {
     console.warn(`${message}: ${error.message}`);
-    if(result){
+    if (result) {
       return result;
-    }else {
+    } else {
       return error;
     }
   }
@@ -34,7 +34,7 @@ function saveDataToFile(filepath, data) {
 function getOrdersFromServer(hash = defaultHash) {
   const url = `${serverUrl}${hash}`;
 
-  console.log(`[server] request: ${url}`)
+  console.log(`[server] request: ${url}`);
 
   return new Promise((resolve, reject) => {
     request(
@@ -57,31 +57,30 @@ function getOrdersFromServer(hash = defaultHash) {
 
 function getOrdersFromCache() {
   if (!fs.existsSync(ordersCacheFilePath)) {
-    return Promise.reject(new Error('no cached orders'));
+    return Promise.reject(new Error("no cached orders"));
   }
 
-  return getDataFromFile(ordersCacheFilePath)
-    .then(data => JSON.parse(data));
+  return getDataFromFile(ordersCacheFilePath).then(data => JSON.parse(data));
 }
 
 function cacheOrders(orders) {
   const rawData = JSON.stringify(orders);
-  return saveDataToFile(ordersCacheFilePath, rawData)
-    .then(() => orders);
+  return saveDataToFile(ordersCacheFilePath, rawData).then(() => orders);
 }
 
 module.exports = {
-  getOrders: function (hash) {
-    return Promise.resolve()
-      //.then(getOrdersFromCache)
-      //.then(logger.log('[cache] loaded'))
-      //.catch(logger.error('[cache] error'))
-      .then(() => getOrdersFromServer(hash || defaultHash))
-      .then(logger.log('[server] responded'))
-      //.then(cacheOrders)
-      //.then(logger.log('[cache] saved'))
-      .then(mapMeidoToWorkers)
-      .then(workers => sortBy(workers, w => w.name.toLowerCase()))
-      //.catch(logger.error('[server] error'));
+  getOrders: function(hash) {
+    return (
+      Promise.resolve()
+        //.then(getOrdersFromCache)
+        //.catch(logger.error('[cache] error'))
+        .then(() => getOrdersFromServer(hash))
+        .then(logger.log("[server] responded"))
+        .then(cacheOrders)
+        .then(logger.log("[cache] saved"))
+        .then(mapMeidoToWorkers)
+        .then(workers => sortBy(workers, w => w.name.toLowerCase()))
+        .catch(error => console.log(error))
+    );
   }
-}
+};
