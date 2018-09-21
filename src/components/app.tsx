@@ -1,27 +1,26 @@
 import * as React from "react";
-import { groupBy, map } from 'lodash';
+import { groupBy, map } from "lodash";
 
-import { hash } from "../../config.js";
-import { Worker } from './types';
-import { WorkerComponent } from './worker';
+import { defaultHash } from "../../config.js";
+import { Worker } from "./types";
+import { WorkerComponent } from "./worker";
 
 import "./app.scss";
 
 type State = {
-  workers: Array<Worker>,
-  isLoading: boolean,
-  error?: object,
+  workers: Array<Worker>;
+  isLoading: boolean;
+  error?: object;
 };
-
 
 export class App extends React.Component<any, State> {
   state: State = {
     isLoading: false,
     workers: [],
-    error: null,
+    error: null
   };
 
-  hash: string = '';
+  hash: string = "";
 
   constructor(props) {
     super(props);
@@ -29,7 +28,7 @@ export class App extends React.Component<any, State> {
 
   componentDidMount() {
     const searchParams = new URLSearchParams(location.search);
-    this.hash = searchParams.get('hash');
+    this.hash = searchParams.get("hash") || defaultHash;
     this.getOrders();
   }
 
@@ -38,10 +37,10 @@ export class App extends React.Component<any, State> {
 
     fetch(`/orders/?hash=${this.hash}`)
       .then(data => data.json())
-      .then((workers) => this.setState({ workers }))
+      .then(workers => this.setState({ workers }))
       .catch(error => this.setState({ error }))
-      .finally(() => this.setState({ isLoading: false }));
-  }
+      .then(() => this.setState({ isLoading: false }));
+  };
 
   render() {
     const { workers } = this.state;
@@ -52,20 +51,12 @@ export class App extends React.Component<any, State> {
         <h1>{`Orders for ${currentDate}`}</h1>
 
         <div className="workers">
-          {
-            workers.length === 0 &&
-            <div className="loader">Loading...</div>
-          }
-          {
-            workers.map((worker, index) =>
-              (<WorkerComponent key={index} worker={worker} />)
-            )
-          }
+          {workers.length === 0 && <div className="loader">Loading...</div>}
+          {workers.map((worker, index) => (
+            <WorkerComponent key={index} worker={worker} />
+          ))}
         </div>
-
       </div>
     );
-
   }
 }
-
