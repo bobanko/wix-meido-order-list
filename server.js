@@ -1,2 +1,2 @@
 //require('./webpackRunner');
-require('./server');
+require('./server/index');

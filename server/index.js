@@ -3,6 +3,8 @@ const { getOrders } = require('./orders');
 
 const app = express();
 
+console.log('[server] init...');
+
 //host static site
 app.use(express.static('dist'))
 
