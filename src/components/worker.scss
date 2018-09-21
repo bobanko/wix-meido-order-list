@@ -1,0 +1,83 @@
+.fl-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.fl-col{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.worker{
+  position: relative;
+  box-sizing: border-box;
+
+  width: 300px;
+
+  padding: 16px;
+  //margin: 5px;
+  //border: 1px solid #ccc;
+  //border-radius: 2px;
+
+  align-items: center;
+
+  .av{
+    --color: black;
+    --size: 40px;
+    --bg-light: #ffffffdd;
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    line-height: var(--size);
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 50%;
+    color: var(--color);
+    background: 
+        linear-gradient(var(--bg-light),var(--bg-light)), 
+        linear-gradient(var(--color),var(--color));
+    flex: 0 0 auto;
+    margin-right: 16px;
+  }
+
+  .worker__title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .worker__name{
+    font-size: 16px;
+    line-height: 1em;
+    color: #000000de;
+  }
+
+ .order__name{
+    font-size: 14px;
+    line-height: 20px;
+    color: #00000099;
+
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+  }
+
+  .order__contractor{
+    font-size: 12px;
+    color: #00000099;
+  }
+ 
+  .contractor__logo{
+    font-size: 12px;
+    text-transform: uppercase;
+    height: 24px;
+    width: 24px;
+    background-color: #00000040;
+    color: white;
+    text-align: center;
+    line-height: 24px;
+  }
+}
