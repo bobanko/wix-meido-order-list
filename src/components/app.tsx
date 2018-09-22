@@ -38,11 +38,13 @@ export class App extends React.Component<any, State> {
 
   render() {
     const { workers, isLoading, error } = this.state;
+
     const currentDate = new Date().toLocaleDateString();
+    const currentTime = new Date().toLocaleTimeString();
 
     return (
       <div>
-        <h1>{`Orders for ${currentDate}`}</h1>
+        <h1>{`Orders for ${currentDate} ${currentTime}`}</h1>
 
         <div className="workers">
           {error && <div>{error.message}</div>}
