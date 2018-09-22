@@ -1,15 +1,28 @@
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
   entry: "./src/index.tsx",
   output: {
-    filename: "app.js"
+    filename: "[name].[hash].js"
   },
   devServer: {
     port: 3500
   },
   devtool: "source-map",
+  optimization: {
+    runtimeChunk: "single",
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    }
+  },
   module: {
     rules: [
       {
@@ -27,6 +40,7 @@ const config = {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
   },
   plugins: [
+    new CleanWebpackPlugin(["dist/*"]),
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
       template: "./src/index.html"
