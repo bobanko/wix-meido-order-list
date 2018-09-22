@@ -1,15 +1,14 @@
-.fl-row{
+.fl-row {
   display: flex;
   flex-direction: row;
 }
 
-.fl-col{
+.fl-col {
   display: flex;
   flex-direction: column;
 }
 
-
-.worker{
+.worker {
   position: relative;
   box-sizing: border-box;
 
@@ -22,7 +21,7 @@
 
   align-items: center;
 
-  .av{
+  .av {
     --color: black;
     --size: 40px;
     --bg-light: #ffffffdd;
@@ -33,28 +32,28 @@
     text-align: center;
     text-transform: uppercase;
     border-radius: 50%;
+    box-shadow: 0 0 2px 0px;
     color: var(--color);
-    background: 
-        linear-gradient(var(--bg-light),var(--bg-light)), 
-        linear-gradient(var(--color),var(--color));
+    background: linear-gradient(var(--bg-light), var(--bg-light)),
+      linear-gradient(var(--color), var(--color));
     flex: 0 0 auto;
     margin-right: 16px;
   }
 
-  .worker__title{
+  .worker__title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
   }
 
-  .worker__name{
+  .worker__name {
     font-size: 16px;
     line-height: 1em;
     color: #000000de;
   }
 
- .order__name{
+  .order__name {
     font-size: 14px;
     line-height: 20px;
     color: #00000099;
@@ -62,15 +61,15 @@
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
   }
 
-  .order__contractor{
+  .order__contractor {
     font-size: 12px;
     color: #00000099;
   }
- 
-  .contractor__logo{
+
+  .contractor__logo {
     font-size: 12px;
     text-transform: uppercase;
     height: 24px;
