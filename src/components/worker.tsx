@@ -10,40 +10,49 @@ export type Props = {
 export class WorkerComponent extends React.Component<Props> {
   props: Props;
 
+  nameAbbr: String;
+  avatarEl: HTMLElement;
+
   constructor(props) {
     super(props);
+    const { worker } = this.props;
+    this.nameAbbr = this.getAbbr(worker.name);
   }
 
-  render() {
-    const { worker } = this.props;
+  componentDidMount() {
+    this.avatarEl.style.setProperty(
+      "--color",
+      this.getAvatarColor(this.nameAbbr)
+    );
+  }
 
-    const getAbbr = str => {
-      const regex1stLetters = /(\w)\w+[\W](\w)\w+/;
-      const [, a, b] = str.match(regex1stLetters);
-      return `${a}${b}`.toLowerCase();
-    };
+  getAbbr(str: String) {
+    const regex1stLetters = /(\w)\w+[\W](\w)\w+/;
+    const [, a, b] = str.match(regex1stLetters);
+    return `${a}${b}`.toLowerCase();
+  }
 
-    const contractorAbbr = getAbbr(worker.order.contractor);
-    const nameAbbr = getAbbr(worker.name);
-
-    const char1 = nameAbbr.charCodeAt(0);
-    const char2 = nameAbbr.charCodeAt(1);
+  getAvatarColor(abbr: String) {
+    const char1 = abbr.charCodeAt(0);
+    const char2 = abbr.charCodeAt(1);
 
     const startChar = 97,
       endChar = 122;
 
     const h = ((char1 - startChar) / (endChar - startChar)) * 360,
-      s = 80,
+      s = 100,
       l = 40;
 
-    const style = {
-      "--color": `hsl(${h},${s}%,${l}%)`
-    };
+    return `hsl(${h},${s}%,${l}%)`;
+  }
+
+  render() {
+    const { worker } = this.props;
 
     return (
       <div className="worker fl-row">
-        <div className="av" style={style}>
-          {nameAbbr}
+        <div className="av" ref={el => (this.avatarEl = el)}>
+          {this.nameAbbr}
         </div>
 
         <div className="fl-col">
