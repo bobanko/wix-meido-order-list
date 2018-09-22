@@ -1,4 +1,22 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);.fl-row {
+@import url(https://fonts.googleapis.com/css?family=Roboto);body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif; }
+
+h1 {
+  text-align: center; }
+
+.loader {
+  font-size: 20px; }
+
+.workers {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  height: 90vh; }
+.fl-row {
   display: flex;
   flex-direction: row; }
 
@@ -23,6 +41,7 @@
     text-align: center;
     text-transform: uppercase;
     border-radius: 50%;
+    box-shadow: 0 0 2px 0px;
     color: var(--color);
     background: linear-gradient(var(--bg-light), var(--bg-light)), linear-gradient(var(--color), var(--color));
     flex: 0 0 auto;
@@ -56,22 +75,5 @@
     color: white;
     text-align: center;
     line-height: 24px; }
-body {
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  font-family: 'Roboto', sans-serif; }
 
-h1 {
-  text-align: center; }
-
-.loader {
-  font-size: 20px; }
-
-.workers {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  height: 90vh; }
+/*# sourceMappingURL=styles.css.map*/
