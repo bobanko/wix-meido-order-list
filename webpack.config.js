@@ -1,17 +1,13 @@
-const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const config = {
   entry: "./src/index.tsx",
   output: {
-    // path: path.resolve(__dirname, './dist'),
     filename: "app.js"
-    // publicPath: "dist/"
   },
   devServer: {
-    port: 3000
+    port: 3500
   },
   devtool: "source-map",
   module: {
@@ -33,10 +29,8 @@ const config = {
   plugins: [
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      title: "Mathbattle"
-    }),
-    new CopyWebpackPlugin([{ from: "src/assets/", to: "assets" }])
+      template: "./src/index.html"
+    })
   ]
 };
 
