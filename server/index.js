@@ -6,7 +6,7 @@ const app = express();
 console.log("[server] init...");
 
 //host static site
-app.use(express.static("public"));
+app.use(express.static("dist"));
 
 //todo: make api calls, update orders daily, or on demand?
 app.get("/orders", async (req, res) => {
