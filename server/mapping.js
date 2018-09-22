@@ -1,5 +1,7 @@
+const { sortBy } = require("lodash");
+
 function mapMeidoToWorkers(meidoOrders) {
-  return meidoOrders
+  const workers = meidoOrders
     .map(order => {
       const { employees, contractor } = order;
       let { title } = order;
@@ -23,6 +25,8 @@ function mapMeidoToWorkers(meidoOrders) {
       prev.push(...next);
       return prev;
     }, []);
+
+  return sortBy(workers, w => w.name.toLowerCase());
 }
 
 module.exports = {
