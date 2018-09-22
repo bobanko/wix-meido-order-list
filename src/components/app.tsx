@@ -1,7 +1,5 @@
 import * as React from "react";
-import { groupBy, map } from "lodash";
 
-import { defaultHash } from "../../config.js";
 import { Worker } from "./types";
 import { WorkerComponent } from "./worker";
 
@@ -10,7 +8,7 @@ import "./app.scss";
 type State = {
   workers: Array<Worker>;
   isLoading: boolean;
-  error?: object;
+  error?: Error;
 };
 
 export class App extends React.Component<any, State> {
@@ -20,22 +18,18 @@ export class App extends React.Component<any, State> {
     error: null
   };
 
-  hash: string = "";
-
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    const searchParams = new URLSearchParams(location.search);
-    this.hash = searchParams.get("hash") || defaultHash;
-    this.getOrders();
+    this.getOrders(location.search);
   }
 
-  getOrders = () => {
+  getOrders = params => {
     this.setState({ isLoading: true });
 
-    fetch(`/orders/?hash=${this.hash}`)
+    fetch(`/orders/${params}`)
       .then(data => data.json())
       .then(workers => this.setState({ workers }))
       .catch(error => this.setState({ error }))
@@ -43,7 +37,7 @@ export class App extends React.Component<any, State> {
   };
 
   render() {
-    const { workers } = this.state;
+    const { workers, isLoading, error } = this.state;
     const currentDate = new Date().toLocaleDateString();
 
     return (
@@ -51,10 +45,12 @@ export class App extends React.Component<any, State> {
         <h1>{`Orders for ${currentDate}`}</h1>
 
         <div className="workers">
-          {workers.length === 0 && <div className="loader">Loading...</div>}
+          {error && <div>{error.message}</div>}
+          {isLoading && <div className="loader">Loading...</div>}
           {workers.map((worker, index) => (
             <WorkerComponent key={index} worker={worker} />
           ))}
+          {!isLoading && workers.length === 0 && <h2>No orders</h2>}
         </div>
       </div>
     );
