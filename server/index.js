@@ -1,6 +1,7 @@
 const express = require("express");
 const { getOrdersFromServer, getOrdersFromCache } = require("./orders");
 
+const port = process.env.PORT || 1337;
 const app = express();
 
 console.log("[server] init...");
@@ -21,6 +22,6 @@ app.get("/orders", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("[server] started");
 });
