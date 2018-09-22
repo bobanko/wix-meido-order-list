@@ -40,11 +40,10 @@ export class App extends React.Component<any, State> {
     const { workers, isLoading, error } = this.state;
 
     const currentDate = new Date().toLocaleDateString();
-    const currentTime = new Date().toLocaleTimeString();
 
     return (
       <div>
-        <h1>{`Orders for ${currentDate} ${currentTime}`}</h1>
+        <h1>{`Orders for ${currentDate}`}</h1>
 
         <div className="workers">
           {error && <div>{error.message}</div>}
