@@ -1,7 +1,7 @@
 const express = require("express");
 const { getOrdersFromServer, getOrdersFromCache } = require("./orders");
 
-const port = process.env.PORT || 1337;
+const port = process.env.PORT || 3000;
 const app = express();
 
 console.log("[server] init...");
