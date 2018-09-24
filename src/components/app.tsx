@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as moment from "moment";
 
 import { Worker } from "./types";
 import { WorkerComponent } from "./worker";
@@ -39,7 +40,7 @@ export class App extends React.Component<any, State> {
   render() {
     const { workers, isLoading, error } = this.state;
 
-    const currentDate = new Date().toLocaleDateString();
+    const currentDate = moment().format("dddd, MMMM Do, YYYY");
 
     return (
       <div>
