@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as moment from "moment";
-
 import { Worker } from "./types";
 import { WorkerComponent } from "./worker";
+
+const { version } = require("../../package.json");
 
 import "./app.scss";
 
@@ -41,10 +42,11 @@ export class App extends React.Component<any, State> {
     const { workers, isLoading, error } = this.state;
 
     const currentDate = moment().format("dddd, MMMM Do, YYYY");
+    const lastUpdateTime = moment().format(`ddd, MMM-D'YY HH:mm:ss`);
 
     return (
       <div>
-        <h1>{`Orders for ${currentDate}`}</h1>
+        <h1>Orders for {currentDate}</h1>
 
         <div className="workers">
           {error && <div>{error.message}</div>}
@@ -53,6 +55,12 @@ export class App extends React.Component<any, State> {
             <WorkerComponent key={index} worker={worker} />
           ))}
           {!isLoading && workers.length === 0 && <h2>No orders</h2>}
+        </div>
+
+        <div className="app-info">
+          <div>last update: {lastUpdateTime} </div>
+          <div>status: offline</div>
+          <div>ver. {version}</div>
         </div>
       </div>
     );
