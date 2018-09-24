@@ -1,7 +1,7 @@
 {
   "name": "meido-orders",
-  "version": "1.4.1",
-  "main": "index.js",
+  "version": "1.0.1",
+  "private": true,
   "engines": {
     "node": "8.9.4"
   },
@@ -9,7 +9,7 @@
     "start": "node server",
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "release": "npm run build && npm version patch"
+    "release": "npm run build && git add -A dist && npm version patch"
   },
   "repository": {
     "type": "git",
@@ -29,8 +29,8 @@
     "source-map-loader": "^0.2.4",
     "ts-loader": "^5.0.0",
     "typescript": "^3.0.3",
-    "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.7"
   },
   "dependencies": {
@@ -40,6 +40,7 @@
     "express": "^3.1.2",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
+    "npm": "^6.4.1",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "request": "^2.88.0"
