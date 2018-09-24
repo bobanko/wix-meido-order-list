@@ -11,7 +11,7 @@ const updateTimeout = 1000 * 10; //60*60;
 type Props = {
   lastUpdated: string;
   error?: Error;
-  fetchWorkers: (params: string) => {};
+  fetchWorkers: (params: string) => any;
 };
 
 export class Updater extends React.Component<Props> {
