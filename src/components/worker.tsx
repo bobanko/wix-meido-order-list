@@ -62,8 +62,6 @@ export class WorkerComponent extends React.Component<Props> {
 
           <div className="order">
             <div className="order__name">{worker.order.title}</div>
-            {/*<div className="order__contractor">{worker.order.contractor}
-            </div>*/}
           </div>
         </div>
       </div>
