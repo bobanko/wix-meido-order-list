@@ -1,4 +1,5 @@
 const express = require("express");
+const { version } = require("../package.json");
 const { getOrdersFromServer, getOrdersFromCache } = require("./orders");
 
 const port = process.env.PORT || 3000;
@@ -14,8 +15,11 @@ app.get("/orders", async (req, res) => {
   const { hash, cache } = req.query;
   console.log("[server] orders requested: ", req.query);
 
+  res.set("version", version);
+
   if (cache) {
     const cachePath = `./cache/${cache}.json`;
+
     res.send(await getOrdersFromCache(cachePath));
   } else {
     res.send(await getOrdersFromServer(hash));
