@@ -6,11 +6,8 @@
 h1 {
   text-align: center; }
 
-.loader {
-  font-size: 20px; }
-
 .app-info {
-  position: absolute;
+  position: fixed;
   right: 0px;
   top: 0px;
   display: flex;
@@ -26,6 +23,40 @@ h1 {
   align-items: center;
   justify-content: flex-start;
   height: 90vh; }
+.progress {
+  --bar-width-min: 10vh;
+  --bar-width-max: 30vh;
+  --color: hsl(265, 100%, 47%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 300ms ease-in-out; }
+  .progress__track {
+    height: inherit;
+    opacity: 0.2;
+    background-color: var(--color); }
+  .progress__indicator {
+    position: absolute;
+    top: 0;
+    width: 0vw;
+    height: inherit;
+    background: var(--color);
+    transition: inherit; }
+  .progress.is-loading {
+    height: 4px; }
+    .progress.is-loading .progress__indicator {
+      animation: progress 1500ms infinite ease-in-out; }
+
+@keyframes progress {
+  0% {
+    width: var(--bar-width-min); }
+  50% {
+    width: 30vw; }
+  100% {
+    transform: translateX(100vw); } }
 .fl-row {
   display: flex;
   flex-direction: row; }
