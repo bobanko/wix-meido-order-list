@@ -7,6 +7,7 @@ const config = {
   output: {
     filename: "[name].[hash].js"
   },
+  watch: true,
   devServer: {
     port: 3500
   },
