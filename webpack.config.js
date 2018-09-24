@@ -7,7 +7,9 @@ const config = {
   output: {
     filename: "[name].[hash].js"
   },
-  watch: true,
+  watchOptions: {
+    ignored: /node_modules/
+  },
   devServer: {
     port: 3500
   },
