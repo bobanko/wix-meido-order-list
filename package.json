@@ -9,7 +9,7 @@
     "start": "node server",
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "release": "npm version minor && npm run build "
+    "release": "npm run build && npm version patch"
   },
   "repository": {
     "type": "git",
