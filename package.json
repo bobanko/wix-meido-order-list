@@ -10,7 +10,7 @@
     "dev": "webpack --watch",
     "devserver": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "release": "npm version patch -f && npm run build && git add -A dist && git commit --amend -m 'BUILD'"
+    "release": "npm version patch -f && npm run build && git add -A dist && git commit --amend"
   },
   "repository": {
     "type": "git",
