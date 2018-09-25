@@ -1,3 +1,4 @@
 # wix-meido-order-list
 
-Meido easier food order list for WIX
+More convenient (than meido) food order daily list for WIX
+🥗Easier to find your dish 🍔
