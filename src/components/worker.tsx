@@ -10,20 +10,8 @@ export type Props = {
 export class WorkerComponent extends React.Component<Props> {
   props: Props;
 
-  nameAbbr: String;
-  avatarEl: HTMLElement;
-
   constructor(props) {
     super(props);
-    const { worker } = this.props;
-    this.nameAbbr = this.getAbbr(worker.name);
-  }
-
-  componentDidMount() {
-    this.avatarEl.style.setProperty(
-      "--color",
-      this.getAvatarColor(this.nameAbbr)
-    );
   }
 
   getAbbr(str: String) {
@@ -49,10 +37,16 @@ export class WorkerComponent extends React.Component<Props> {
   render() {
     const { worker } = this.props;
 
+    const nameAbbr = this.getAbbr(worker.name);
+
+    const setAvColor = el => {
+      el && el.style.setProperty("--color", this.getAvatarColor(nameAbbr));
+    };
+
     return (
       <div className="worker fl-row">
-        <div className="av" ref={el => (this.avatarEl = el)}>
-          {this.nameAbbr}
+        <div className="av" ref={el => setAvColor(el)}>
+          {nameAbbr}
         </div>
 
         <div className="fl-col">
