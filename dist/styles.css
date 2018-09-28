@@ -23,7 +23,7 @@ h1 {
   align-items: center;
   justify-content: flex-start;
   height: 90vh; }
-.progress {
+.loader-linear {
   --bar-width-min: 10vh;
   --bar-width-max: 30vh;
   --color: hsl(265, 100%, 47%);
@@ -34,23 +34,23 @@ h1 {
   height: 0;
   overflow: hidden;
   transition: all 300ms ease-in-out; }
-  .progress__track {
+  .loader-linear__track {
     height: inherit;
     opacity: 0.2;
     background-color: var(--color); }
-  .progress__indicator {
+  .loader-linear__indicator {
     position: absolute;
     top: 0;
     width: 0vw;
     height: inherit;
     background: var(--color);
     transition: inherit; }
-  .progress.is-loading {
+  .loader-linear.is-loading {
     height: 4px; }
-    .progress.is-loading .progress__indicator {
-      animation: progress 1500ms infinite ease-in-out; }
+    .loader-linear.is-loading .loader-linear__indicator {
+      animation: pg-linear 1500ms infinite ease-in-out; }
 
-@keyframes progress {
+@keyframes pg-linear {
   0% {
     width: var(--bar-width-min); }
   50% {
