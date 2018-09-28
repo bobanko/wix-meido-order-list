@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Worker } from "./types";
 import { WorkerComponent } from "./worker";
 import Updater from "./updater";
-import Progress from "./progress";
+import LoaderLinear from "./loader-linear";
 
 import "./app.scss";
 
@@ -28,7 +28,7 @@ export class App extends React.Component<Props> {
 
     return (
       <div>
-        <Progress isLoading={isLoading} />
+        <LoaderLinear isLoading={isLoading} />
         <Updater />
 
         <h1>Orders for {currentDate}</h1>

@@ -1,4 +1,4 @@
-.progress {
+.loader-linear {
   --bar-width-min: 10vh;
   --bar-width-max: 30vh;
   --color: hsl(265, 100%, 47%);
@@ -29,13 +29,13 @@
 
   &.is-loading {
     height: 4px;
-    .progress__indicator {
-      animation: progress 1500ms infinite ease-in-out;
+    .loader-linear__indicator {
+      animation: pg-linear 1500ms infinite ease-in-out;
     }
   }
 }
 
-@keyframes progress {
+@keyframes pg-linear {
   0% {
     width: var(--bar-width-min);
   }
