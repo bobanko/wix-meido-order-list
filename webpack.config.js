@@ -6,6 +6,7 @@ const config = {
   entry: "./src/index.tsx",
   output: {
     filename: "[name].[hash].js"
+    // filename: "[name].js"
   },
   watchOptions: {
     ignored: /node_modules/
