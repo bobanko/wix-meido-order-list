@@ -1,4 +1,5 @@
 import * as React from "react";
+import classnames from "classnames";
 
 import "./loader-linear.scss";
 
@@ -8,13 +9,11 @@ type Props = {
 
 export default class LoaderLinear extends React.Component<Props> {
   render() {
-    //this.props.isLoading;
-
     return (
       <div
-        className={["loader-linear", this.props.isLoading && "is-loading"].join(
-          " "
-        )}
+        className={classnames("loader-linear", {
+          "is-loading": this.props.isLoading
+        })}
       >
         <div className="loader-linear__track" />
         <div className="loader-linear__indicator" />

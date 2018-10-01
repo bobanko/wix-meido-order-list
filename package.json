@@ -8,6 +8,7 @@
   "scripts": {
     "start": "node server",
     "dev": "webpack --watch",
+    "server":"node server",
     "devserver": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "release": "npm version patch -f && npm run build && git add -A dist && git commit --amend --no-edit"
@@ -39,6 +40,7 @@
     "@types/lodash": "^4.14.110",
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
+    "classnames": "^2.2.6",
     "express": "^3.1.2",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
