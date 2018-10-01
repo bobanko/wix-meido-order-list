@@ -52,8 +52,6 @@ export class Updater extends React.Component<Props, State> {
 
     return (
       <div className="app-info">
-        <button onClick={this.update}>update</button>
-
         <div>last update: {lastUpdateTime} </div>
         <div>
           status:
