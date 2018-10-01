@@ -1,0 +1,100 @@
+.loader-circular {
+  --color: hsl(265, 100%, 47%);
+  --size: 40px; //should match with viewbox
+  --center: calc(var(--size) / 2);
+  //strict to 16, to get 100px circle length; L = 2*Pi*R
+  --radius: 16; //15.91549430919
+  --width: 4px;
+
+  --value: 0;
+
+  width: var(--size);
+  height: var(--size);
+
+  stroke: var(--color);
+  fill: none;
+
+  &__track,
+  &__indicator {
+    cx: var(--center);
+    cy: var(--center);
+    r: var(--radius);
+
+    stroke-width: 0;
+
+    transition: stroke-width 200ms ease-in-out,
+      stroke-dasharray 300ms ease-in-out, stroke-dashoffset 300ms ease-in-out;
+  }
+
+  &__track {
+    opacity: 0.2;
+  }
+
+  &__indicator {
+    stroke-dasharray: 0, 100;
+    stroke-dashoffset: 0;
+
+    transform-origin: center center;
+    transform: rotateZ(-90deg);
+
+    stroke-linecap: round;
+  }
+
+  &.is-loading {
+    .loader-circular__track,
+    .loader-circular__indicator {
+      stroke-width: var(--width);
+    }
+  }
+
+  &.is-loading {
+    &:not(.infinite) {
+      .loader-circular__indicator {
+        stroke-dasharray: 100, 100;
+        stroke-dashoffset: calc(100 - var(--value));
+      }
+
+      &.ccw {
+        .loader-circular__indicator {
+          stroke-dashoffset: calc(100 + var(--value));
+        }
+      }
+    }
+
+    &.infinite {
+      .loader-circular__indicator {
+        animation: dash 1500ms infinite linear, rotate 1500ms infinite linear;
+        animation-fill-mode: both;
+      }
+    }
+  }
+
+  text {
+    text-anchor: middle;
+    pointer-events: auto;
+    fill: black;
+    stroke: none;
+    font-size: 10px; //5 //14px - 3 //20px - 1
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 0, 100;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dasharray: 50, 100;
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(-90deg);
+  }
+  100% {
+    transform: rotateZ(270deg);
+  }
+}
