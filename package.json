@@ -1,6 +1,6 @@
 {
   "name": "meido-orders",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "private": true,
   "engines": {
     "node": "8.9.4"
@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node server",
     "dev": "webpack --watch",
-    "server":"node server",
+    "server": "node server",
     "devserver": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "release": "npm version patch -f && npm run build && git add -A dist && git commit --amend --no-edit"
