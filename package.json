@@ -1,6 +1,6 @@
 {
   "name": "meido-orders",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "private": true,
   "engines": {
     "node": "8.9.4"
