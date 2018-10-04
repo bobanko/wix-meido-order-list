@@ -26,17 +26,17 @@ export const receiveError = error => ({
 //   type: UPDATE_APP
 // });
 
-// THUNKS ? where to move it?
+// THUNKS ? where to move it? create sagas?
 export const fetchWorkers = params => dispatch => {
   dispatch(requestOrders(params));
 
-  return fetch(`/orders/${params}`) //todo: move fetch to api?
+  return fetch(`api/orders/${params}`) //todo: move fetch to api?
     .then(response => {
       const serverVersion = response.headers.get("version");
 
       if (serverVersion !== clientVersion) {
         //UPDATE APP
-        window.location.reload();
+        setTimeout(() => window.location.reload(), 60 * 1000);
       }
 
       return response;
