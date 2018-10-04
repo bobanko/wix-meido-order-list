@@ -11,7 +11,7 @@ console.log("[server] init...");
 app.use(express.static("dist"));
 
 //todo: make api calls, update orders daily, or on demand?
-app.get("/orders", async (req, res) => {
+app.get("/api/orders", async (req, res) => {
   const { hash, cache } = req.query;
   console.log("[server] orders requested: ", req.query);
 
