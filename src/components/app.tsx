@@ -6,6 +6,7 @@ import { Worker } from "./types";
 import { WorkerComponent } from "./worker";
 import Updater from "./updater";
 import LoaderLinear from "./loader-linear";
+import { getFoodEmoji } from "./food-emoji";
 
 import "./app.scss";
 
@@ -31,7 +32,10 @@ export class App extends React.Component<Props> {
         <LoaderLinear isLoading={isLoading} />
         <Updater />
 
-        <h1>Orders for {currentDate}</h1>
+        <h1>
+          {getFoodEmoji()}
+          Orders for {currentDate}
+        </h1>
 
         <div className="workers">
           {workers.map((worker, index) => (
