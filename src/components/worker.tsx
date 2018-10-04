@@ -15,9 +15,14 @@ export class WorkerComponent extends React.Component<Props> {
   }
 
   getAbbr(str: String) {
-    const regex1stLetters = /(\w)\w+[\W](\w)\w+/;
-    const [, a, b] = str.match(regex1stLetters);
-    return `${a}${b}`.toLowerCase();
+    const regex1stLetters = /(\w)\w*[\W](\w)\w*/;
+    try {
+      const [, a, b] = str.match(regex1stLetters);
+      return `${a}${b}`.toLowerCase();
+    } catch {
+      console.warn("wrong string format", str);
+      return "🦄";
+    }
   }
 
   getAvatarColor(abbr: String) {
