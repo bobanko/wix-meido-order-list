@@ -16,6 +16,9 @@ h1 {
   padding: 5px;
   color: #00000033; }
 
+.banner {
+  color: black; }
+
 .workers {
   display: flex;
   flex-direction: column;
