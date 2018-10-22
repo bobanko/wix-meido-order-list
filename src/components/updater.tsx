@@ -49,9 +49,13 @@ export class Updater extends React.Component<Props, State> {
     const { error, lastUpdated } = this.props;
 
     const lastUpdateTime = moment(lastUpdated).format(`ddd, MMM-D'YY HH:mm:ss`);
+    const profileLink = "https://www.linkedin.com/in/volodymyr-myshko/";
 
     return (
       <div className="app-info">
+        <div className="banner">
+          👨‍💻FED looking for a job 🙏 <a href={profileLink}>{profileLink}</a>
+        </div>
         <div>last update: {lastUpdateTime} </div>
         <div>
           status:
