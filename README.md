@@ -9,4 +9,3 @@ Easier to find your dish
 
 * Request a new feature on [GitHub Issues](https://github.com/bobanko/wix-meido-order-list/issues).
 * Report a bug in [GitHub Issues](https://github.com/bobanko/wix-meido-order-list/issues).
-* [E-mail](volodymyrm@wix.com) me with other feedback.
