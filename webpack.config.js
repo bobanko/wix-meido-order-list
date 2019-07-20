@@ -12,6 +12,7 @@ const config = {
     ignored: /node_modules/
   },
   devServer: {
+    host: "0.0.0.0",
     port: 3500,
     proxy: {
       "/api/*": "http://[::1]:3000" //todo: get port form server config
