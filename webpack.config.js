@@ -41,11 +41,15 @@ const config = {
         test: /\.tsx?$/,
         use: "ts-loader"
       },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: "file-loader"
+      }
     ]
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".png"]
   },
   plugins: [
     new CleanWebpackPlugin(["dist/*"]),
