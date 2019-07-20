@@ -11,21 +11,11 @@
  *  ["andrii mokhovyk", "🇺🇦"], //like this guy
  */
 const users = [
-  ["Alina Kuvshynova", "⚠️"],
-  ["Andrii Chyzh", "💀"],
+  ["Dmitry Naumenko", "🦄"],
+  ["Yurii But", "🦐"],
 
-  ["Andrii Umanskyi", "🍑"],
-  ["Anton Berezhnyi", "❌"],
-  ["Bohdan Tryhub ", "🚨"],
-  ["Dariia Shamanskaya", "🌐"],
-  ["Denys Serhiienko", "🤯"],
-  ["Dmytro Aponasenko", "😡"],
-  ["Dmytro Kasianov", "😈"],
-  ["Dmytro Shyshkov", "🍆"],
-  ["Ekaterina Golubtsova", "⛔️"],
-  ["Elvira Kantiieva", "👾"],
-  ["Eugeniia Samarskaia", "🎃"],
-  ["Kostiantyn Ovsepian", "🤖"]
+  ["Kostiantyn Ovsepian", "🤓"]
+  //
 ];
 
 //da:
