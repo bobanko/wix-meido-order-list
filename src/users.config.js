@@ -1,23 +1,32 @@
-module.exports = {
-  users: [
-    ["Alina Kuvshynova", "⚠️"],
-    ["Andrii Chyzh", "💀"],
-    ["andrii mokhovyk", "🇺🇦"],
-    ["Andrii Motsyk", "💩"],
-    ["Andrii Umanskyi", "🍑"],
-    ["Anton Berezhnyi", "❌"],
-    ["Bohdan Tryhub ", "🚨"],
-    ["Dariia Shamanskaya", "🌐"],
-    ["Denys Serhiienko", "🤯"],
-    ["Dmytro Aponasenko", "😡"],
-    ["Dmytro Kasianov", "😈"],
-    ["Dmytro Shyshkov", "🍆"],
-    ["Ekaterina Golubtsova", "⛔️"],
-    ["Elvira Kantiieva", "👾"],
-    ["Eugeniia Samarskaia", "🎃"],
-    ["Kostiantyn Ovsepian", "🤖"]
-  ]
-};
+/**
+ * just add your user in following format:
+ * ["your name's exact copy from dashboard here", "emoji here"]
+ * example:
+ * ["Andrii Motsyk", "💀"],
+ * ⚠️TIPS:
+ * some users have redundant spaces in their names,
+ * so they should copy those as-is.
+ * Also pay attention to letter case,
+ * those who have lowercased names should paste their names as-is.
+ *  ["andrii mokhovyk", "🇺🇦"], //like this guy
+ */
+const users = [
+  ["Alina Kuvshynova", "⚠️"],
+  ["Andrii Chyzh", "💀"],
+
+  ["Andrii Umanskyi", "🍑"],
+  ["Anton Berezhnyi", "❌"],
+  ["Bohdan Tryhub ", "🚨"],
+  ["Dariia Shamanskaya", "🌐"],
+  ["Denys Serhiienko", "🤯"],
+  ["Dmytro Aponasenko", "😡"],
+  ["Dmytro Kasianov", "😈"],
+  ["Dmytro Shyshkov", "🍆"],
+  ["Ekaterina Golubtsova", "⛔️"],
+  ["Elvira Kantiieva", "👾"],
+  ["Eugeniia Samarskaia", "🎃"],
+  ["Kostiantyn Ovsepian", "🤖"]
+];
 
 //da:
 // "Andrii Umanskyi",
@@ -31,6 +40,14 @@ module.exports = {
 // "Mykhailo Khraban",
 // "Viktor Paladiichuk"
 
-//fired:
+//💀:
 //"Volodymyr Myshko",
 //"Andrii Motsyk",
+
+module.exports = {
+  users: [
+    ...users,
+    /* system reserved */
+    ["[meido] server error", "💩"]
+  ]
+};
