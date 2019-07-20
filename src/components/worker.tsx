@@ -29,7 +29,7 @@ export class WorkerComponent extends React.Component<Props> {
       return `${a}${b}`.toLowerCase();
     } catch {
       console.warn("wrong string format", str);
-      return "💩";
+      return null;
     }
   }
 
@@ -51,7 +51,6 @@ export class WorkerComponent extends React.Component<Props> {
     const { worker } = this.props;
 
     const emoji = getEmoji(worker.name);
-
     const nameAbbr = this.getAbbr(worker.name);
 
     const setAvColor = el => {
