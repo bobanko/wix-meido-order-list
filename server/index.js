@@ -1,31 +1,25 @@
 const express = require("express");
 const { version } = require("../package.json");
-const { getOrdersFromServer, getOrdersFromCache } = require("./orders");
+const { getOrders } = require("./orders");
+const { defaultHash } = require("../config.js");
 
 const port = process.env.PORT || 3000;
 const app = express();
 
-console.log("[server] init...");
+console.log("🥗[dashboard] init...");
 
 //host static site
 app.use(express.static("dist"));
 
-//todo: make api calls, update orders daily, or on demand?
 app.get("/api/orders", async (req, res) => {
-  const { hash, cache } = req.query;
-  console.log("[server] orders requested: ", req.query);
+  const { hash = defaultHash } = req.query;
+  console.log(`🥗[dashboard] request: '${hash}'`);
 
   res.set("version", version);
 
-  if (cache) {
-    const cachePath = `./cache/${cache}.json`;
-
-    res.send(await getOrdersFromCache(cachePath));
-  } else {
-    res.send(await getOrdersFromServer(hash));
-  }
+  res.send(await getOrders(hash));
 });
 
 app.listen(port, () => {
-  console.log("[server] started");
+  console.log("🥗[dashboard] started");
 });
