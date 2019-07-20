@@ -21,7 +21,7 @@
 
   align-items: center;
 
-  .av {
+  .avatar {
     --color: black;
     --size: 40px;
     --bg-light: #ffffffdd;
@@ -31,13 +31,21 @@
     line-height: var(--size);
     text-align: center;
     text-transform: uppercase;
+
+    flex: 0 0 auto;
+    margin-right: 16px;
+  }
+
+  .avatar.abbr {
     border-radius: 50%;
     box-shadow: 0 0 2px 0px;
     color: var(--color);
     background: linear-gradient(var(--bg-light), var(--bg-light)),
       linear-gradient(var(--color), var(--color));
-    flex: 0 0 auto;
-    margin-right: 16px;
+  }
+
+  .avatar.emoji {
+    font-size: 30px;
   }
 
   .worker__title {

@@ -1,4 +1,7 @@
 import * as React from "react";
+import classnames from "classnames";
+
+const { users } = require("../users.config");
 
 import { Worker } from "./types";
 import "./worker.scss";
@@ -6,6 +9,11 @@ import "./worker.scss";
 export type Props = {
   worker: Worker;
 };
+
+const userNames = new Map(users);
+function getEmoji(userName) {
+  return userNames.get(userName);
+}
 
 export class WorkerComponent extends React.Component<Props> {
   props: Props;
@@ -15,13 +23,13 @@ export class WorkerComponent extends React.Component<Props> {
   }
 
   getAbbr(str: String) {
-    const regex1stLetters = /(\w)\w*[\W](\w)\w*/;
+    const regex1stLetters = /(\w)\w*[\W]+(\w)\w*/;
     try {
       const [, a, b] = str.match(regex1stLetters);
       return `${a}${b}`.toLowerCase();
     } catch {
       console.warn("wrong string format", str);
-      return "🦄";
+      return "💩";
     }
   }
 
@@ -42,6 +50,8 @@ export class WorkerComponent extends React.Component<Props> {
   render() {
     const { worker } = this.props;
 
+    const emoji = getEmoji(worker.name);
+
     const nameAbbr = this.getAbbr(worker.name);
 
     const setAvColor = el => {
@@ -50,8 +60,11 @@ export class WorkerComponent extends React.Component<Props> {
 
     return (
       <div className="worker fl-row">
-        <div className="av" ref={el => setAvColor(el)}>
-          {nameAbbr}
+        <div
+          className={classnames("avatar", { emoji: !!emoji, abbr: !emoji })}
+          ref={el => setAvColor(el)}
+        >
+          {emoji || nameAbbr}
         </div>
 
         <div className="fl-col">
