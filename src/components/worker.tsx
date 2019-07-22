@@ -29,7 +29,7 @@ export class WorkerComponent extends React.Component<Props> {
       return `${a}${b}`.toLowerCase();
     } catch {
       console.warn("wrong string format", str);
-      return null;
+      return "--";
     }
   }
 
