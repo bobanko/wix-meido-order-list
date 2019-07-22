@@ -11,8 +11,10 @@
  *  ["andrii mokhovyk", "🇺🇦"], //like this guy
  */
 const users = [
-  ["Dmitry Naumenko", "🦄"],
+  ["Andrey Listochkin", "🧔🏼"],
+  ["Dmytro Naumenko", "🦄"],
   ["Yurii But", "🦐"],
+  ["Nadiia Davydiuk", "🌸"], //"👩🏻‍🦰" - not supported on win
 
   ["Kostiantyn Ovsepian", "🤓"]
   //
