@@ -55,7 +55,8 @@ const config = {
     new CleanWebpackPlugin(["dist/*"]),
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./src/index.html",
+      favicon: "./src/favicon.png"
     })
   ]
 };
