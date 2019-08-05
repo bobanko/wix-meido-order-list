@@ -15,8 +15,9 @@ const users = [
   ["Dmytro Naumenko", "🦄"],
   ["Yurii But", "🦐"],
   ["Nadiia Davydiuk", "🌸"], //"👩🏻‍🦰" - not supported on win
-
-  ["Kostiantyn Ovsepian", "🤓"]
+  //da
+  ["Kostiantyn Ovsepian", "🤓"],
+  ["Volodymyr Kaliuzhnyi", "🤘"]
   //
 ];
 
@@ -35,6 +36,8 @@ const users = [
 //💀:
 //"Volodymyr Myshko",
 //"Andrii Motsyk",
+//etc
+//"Anna Bilyavskaya"
 
 module.exports = {
   users: [
