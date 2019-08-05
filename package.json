@@ -9,7 +9,7 @@
     "start": "node server",
     "dev": "webpack --watch",
     "server": "node server",
-    "devserver": "webpack-dev-server --mode development --open",
+    "devserver": "node server & webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "release": "npm version patch -f && npm run build && git add -A dist && git commit --amend --no-edit"
   },
@@ -20,7 +20,7 @@
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
     "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.2",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
