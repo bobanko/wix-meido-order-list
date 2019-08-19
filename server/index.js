@@ -1,4 +1,7 @@
 const express = require("express");
+
+const { zip } = require("zip-a-folder");
+
 const { version } = require("../package.json");
 const { getOrders } = require("./orders");
 const { defaultHash } = require("../config.js");
@@ -18,6 +21,17 @@ app.get("/api/orders", async (req, res) => {
   res.set("version", version);
 
   res.send(await getOrders(hash));
+});
+
+const cacheFileName = `./cache.zip`;
+
+app.get("/api/cache-zip", (req, res) => {
+  console.log(`[cache] zipping...`);
+  zip("./cache", cacheFileName).then(() => {
+    console.log(`[cache] zipped to ${cacheFileName}`);
+
+    res.download(cacheFileName);
+  });
 });
 
 app.listen(port, () => {
