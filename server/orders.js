@@ -9,7 +9,7 @@ function getMeidoError(message) {
     {
       name: "[meido] server error",
       order: {
-        title: message,
+        title: JSON.stringify(message),
         contractor: "meido"
       }
     }
