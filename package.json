@@ -6,7 +6,7 @@
     "node": "8.9.4"
   },
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run server",
     "dev": "npm run server & npm run frontend",
     "frontend": "webpack-dev-server --mode development --open",
     "server": "node server",
