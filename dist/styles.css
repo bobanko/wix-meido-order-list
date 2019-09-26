@@ -4,7 +4,9 @@
   font-family: "Roboto", sans-serif; }
 
 h1 {
-  text-align: center; }
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .app-info {
   position: fixed;
@@ -122,5 +124,11 @@ h1 {
     color: white;
     text-align: center;
     line-height: 24px; }
+.floor-selector {
+  display: flex; }
+
+.floor-selector > select {
+  margin: 0px 10px;
+  font-size: inherit; }
 
 /*# sourceMappingURL=styles.css.map*/
