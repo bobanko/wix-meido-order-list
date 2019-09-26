@@ -9,6 +9,7 @@ import LoaderLinear from "./loader-linear";
 import { getFoodEmoji } from "./food-emoji";
 
 import "./app.scss";
+import { FloorSelector } from "./floor-selector";
 
 type Props = {
   workers: Array<Worker>;
@@ -33,8 +34,8 @@ export class App extends React.Component<Props> {
         <Updater />
 
         <h1>
-          {getFoodEmoji()}
-          Orders for {currentDate}
+          <FloorSelector />
+          {`Orders ${getFoodEmoji()} ${currentDate}`}
         </h1>
 
         <div className="workers">

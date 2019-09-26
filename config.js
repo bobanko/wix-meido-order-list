@@ -7,5 +7,6 @@ const floors = new Map([
 
 module.exports = {
   serverUrl: "https://analytics.getmeido.com/media/json?hash=",
-  defaultHash: floors.get(4)
+  defaultHash: floors.get(4),
+  floors
 };
