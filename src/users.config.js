@@ -17,8 +17,9 @@ const users = [
   ["Nadiia Davydiuk", "🌸"], //"👩🏻‍🦰" - not supported on win
   //da
   ["Kostiantyn Ovsepian", "🤓"],
-  ["Volodymyr Kaliuzhnyi", "🤘"]
+  ["Volodymyr Kaliuzhnyi", "🤘"],
   //
+  ["Anna Bilyavskaya", "🌺"],
 ];
 
 //da:
