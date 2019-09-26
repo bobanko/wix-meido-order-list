@@ -19,7 +19,7 @@ const users = [
   ["Kostiantyn Ovsepian", "🤓"],
   ["Volodymyr Kaliuzhnyi", "🤘"],
   //
-  ["Anna Bilyavskaya", "🌺"],
+  ["Anna Bilyavskaya", "🌺"]
 ];
 
 //da:
@@ -29,6 +29,7 @@ const users = [
 // "Kostiantyn Ovsepian",
 // "Oleksandr Danylenko",
 // "Natalia Gagarina",
+// "Alina Kononenko",
 // "Liudmyla Manziuk",
 // "Anton Berezhnyi",
 // "Mykhailo Khraban",
