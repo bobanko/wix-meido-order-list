@@ -22,12 +22,14 @@ h1 {
   align-items: flex-end;
 
   padding: 5px;
-
-  color: #00000033;
 }
 
-.banner {
-  color: black;
+.update-info {
+  opacity: 0.2;
+}
+
+.version {
+  opacity: 0.2;
 }
 
 .workers {
