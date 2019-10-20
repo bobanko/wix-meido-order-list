@@ -23,9 +23,8 @@ app.get("/api/orders", async (req, res) => {
   res.send(await getOrders(hash));
 });
 
-const cacheFileName = `./cache.zip`;
-
 app.get("/api/cache-zip", (req, res) => {
+  const cacheFileName = `./cache.zip`;
   console.log(`[cache] zipping...`);
   zip("./cache", cacheFileName).then(() => {
     console.log(`[cache] zipped to ${cacheFileName}`);
