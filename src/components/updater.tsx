@@ -56,10 +56,10 @@ export class Updater extends React.Component<Props, State> {
         <div className="banner">
           🐞Issues? <a href={contactLink}>{contactLink}</a>
         </div>
-        <div>last update: {lastUpdateTime} </div>
+        <div className="update-info">last update: {lastUpdateTime}</div>
         <div>
-          <span>ver. {version}, </span>
-          <span>
+          <span className="version">ver. {version}, </span>
+          <span className="status">
             status:
             {error ? (
               <span style={{ color: "red" }}>
