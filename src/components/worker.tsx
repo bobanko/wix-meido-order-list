@@ -5,6 +5,7 @@ const { users } = require("../users.config");
 
 import { Worker } from "./types";
 import "./worker.scss";
+import { getHalloweenEmoji } from "./halloween-emoji";
 
 export type Props = {
   worker: Worker;
@@ -12,7 +13,11 @@ export type Props = {
 
 const userNames = new Map(users);
 function getEmoji(userName) {
-  return userNames.get(userName);
+  const emoji = userNames.get(userName);
+
+  //🎃 halloween emoji set activated here
+  return getHalloweenEmoji(); // emoji || "kek";
+  return emoji;
 }
 
 export class WorkerComponent extends React.Component<Props> {
