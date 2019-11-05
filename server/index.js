@@ -24,6 +24,7 @@ app.get("/api/orders", async (req, res) => {
 });
 
 app.get("/api/cache-zip", (req, res) => {
+  //todo: add date to cache file
   const cacheFileName = `./cache.zip`;
   console.log(`[cache] zipping...`);
   zip("./cache", cacheFileName).then(() => {

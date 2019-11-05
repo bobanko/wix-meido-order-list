@@ -52,6 +52,7 @@ function getDataFromServer(url) {
 
 function getCachePath(hash) {
   const [date] = new Date().toISOString().split("T");
+  //todo: use locale UA date, not ISO, GMT+
   //todo: add current date
   const cachePath = `./cache/${hash}.${date}.json`; //
 
