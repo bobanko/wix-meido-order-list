@@ -5,7 +5,7 @@ const { users } = require("../users.config");
 
 import { Worker } from "./types";
 import "./worker.scss";
-import { getHalloweenEmoji } from "./halloween-emoji";
+// import { getHalloweenEmoji } from "./halloween-emoji";
 
 export type Props = {
   worker: Worker;
@@ -16,7 +16,7 @@ function getEmoji(userName) {
   const emoji = userNames.get(userName);
 
   //🎃 halloween emoji set activated here
-  return getHalloweenEmoji(); // emoji || "kek";
+  //return getHalloweenEmoji(); // emoji || "kek";
   return emoji;
 }
 
